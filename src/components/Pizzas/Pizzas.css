@@ -1,0 +1,10 @@
+.pizzas-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.pizzas-list > div {
+    flex: 0 48%;
+    margin: 10px;
+}
