@@ -1,0 +1,45 @@
+.header {
+    background: #DC143C;
+    color: #ffffff;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navigation > a {
+    padding: 0 20px;
+    color: inherit;
+    text-decoration: none;
+}
+
+.pizza-logo {
+    margin-left: 20px;
+    height: 60px;
+}
+
+.cart-area {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.shopping-cart {
+    margin-right: 20px;
+    height: 45px;
+}
+
+.cart-count {
+    background: #ffffff;
+    border-radius: 50%;
+    margin-right: 20px;
+    height: 45px;
+    width: 45px;
+    color: #DC143C;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+
+}
