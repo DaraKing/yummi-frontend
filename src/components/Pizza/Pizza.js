@@ -1,7 +1,18 @@
 import React from "react";
 import "./Pizza.css"
+import { connect } from 'react-redux';
+import { addToCart } from "../../js/actions";
+
+const mapDispatchToProps = {
+    addToCart
+};
 
 const Pizza = (props) => {
+
+    function addPizzaToCart(data) {
+        props.addToCart(data);
+    }
+
     return (
         <div className="pizza-content">
             <div className="image-container">
@@ -19,7 +30,7 @@ const Pizza = (props) => {
                         {props.data.price} &#x20AC;
                     </div>
                     <div>
-                        <button className="add-to-cart">Add to cart</button>
+                        <button onClick={() => addPizzaToCart(props.data)} className="add-to-cart">Add to cart</button>
                     </div>
                 </div>
             </div>
@@ -27,4 +38,4 @@ const Pizza = (props) => {
     )
 }
 
-export default Pizza;
+export default connect(null, mapDispatchToProps)(Pizza);
