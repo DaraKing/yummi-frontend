@@ -6,3 +6,8 @@
     height: 50vh;
     width: 25vw;
 }
+
+.cart-list {
+    height: 80%;
+    overflow: auto;
+}
