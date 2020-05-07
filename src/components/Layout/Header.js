@@ -27,6 +27,8 @@ const HeaderRender = ({cart}) => {
         setDisplayCart(!displayCart)
     }
 
+    const pizzasTotal = cart.reduce((sum, pizza) => sum + pizza.quantity, 0)
+
     return  (
         <div>
             <div className="header">
@@ -35,7 +37,7 @@ const HeaderRender = ({cart}) => {
                     <Link to="/pizzas">Pizzas</Link>
                 </div>
                 <div className="cart-area">
-                    <div className="cart-count">{cart.length}</div>
+                    <div className="cart-count">{pizzasTotal}</div>
                     <ShoppingCart className="shopping-cart" onClick={() => toggleCartContent()} />
                 </div>
             </div>

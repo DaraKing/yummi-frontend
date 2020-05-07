@@ -7,10 +7,21 @@ const initialState = {
 function cartReducer(state = initialState, action) {
     switch (action.type) {
         case ADD_TO_CART:
+            let index = state.cart.indexOf(action.payload);
+            let cart = state.cart.slice();
+
+            if(index > -1) {
+                cart[index].quantity = cart[index].quantity + 1;
+            } else {
+                let obj = action.payload;
+                obj["quantity"] = 1;
+                cart.push(obj);
+            }
+
             return {
                 ...state,
-                cart: state.cart.concat(action.payload)
-            };
+                cart
+            }
         default:
             return state
     }
