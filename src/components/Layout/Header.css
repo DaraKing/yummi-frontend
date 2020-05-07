@@ -43,12 +43,3 @@
     justify-content: center;
     font-size: 24px;
 }
-
-.cart-content {
-    position: absolute;
-    top: 70px;
-    right: 0;
-    background: #DC143C;
-    height: 50vh;
-    width: 25vw;
-}

@@ -6,6 +6,7 @@ import {
 import pizza from '../../icons/pizza.svg';
 import { ReactComponent as ShoppingCart } from '../../icons/shopping-cart.svg';
 import { connect } from 'react-redux';
+import Cart from "../Cart/Cart";
 
 const mapStateToProps = state => {
     return { cart: state.cart }
@@ -17,7 +18,7 @@ const HeaderRender = ({cart}) => {
 
     const renderCartContent = () => {
         if(displayCart) {
-            return <div className="cart-content"></div>
+            return <Cart />
         }
         return ""
     }
