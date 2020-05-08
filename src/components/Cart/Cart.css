@@ -11,3 +11,21 @@
     height: 80%;
     overflow: auto;
 }
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: #ffffff;
+    margin-top: 10px;
+}
+
+.remove {
+    font-weight: bold;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.remove:hover {
+    color: #000000;
+}

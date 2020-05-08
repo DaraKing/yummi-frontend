@@ -1,25 +1,42 @@
 import React from "react";
-import "./Cart.css"
 import { connect } from 'react-redux';
-import CartItem from "../CartItem/CartItem";
+import "./Cart.css"
+import { removeFromCart } from "../../js/actions";
 
-const mapStateToProps = state => {
-    return { cart: state.cart }
-}
+const mapDispatchToProps = {
+    removeFromCart
+};
 
+const Cart = (props) => {
 
-const CartRender = ({cart}) => {
-    const listCartItems = cart.map((item, index) => <CartItem key={index} item={item}/>);
+    function removePizzaFromCart(data) {
+        props.removeFromCart(data);
+    }
 
     return (
         <div className="cart-content">
             <div className="cart-list">
-                {listCartItems}
+                {
+                    props.items.map((item) =>
+                        <div className="cart-item" key={item.pizza_id}>
+                            <div className="item">
+                                {item.name}
+                            </div>
+                            <div className="item">
+                                {item.price}
+                            </div>
+                            <div className="item">
+                                {item.quantity}
+                            </div>
+                            <div className="item remove" onClick={() => removePizzaFromCart(item)}>
+                                x
+                            </div>
+                        </div>
+                    )
+                }
             </div>
         </div>
     )
 }
 
-const Cart = connect(mapStateToProps)(CartRender);
-
-export default Cart;
+export default connect(null, mapDispatchToProps)(Cart);

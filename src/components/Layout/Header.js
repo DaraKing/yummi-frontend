@@ -16,13 +16,6 @@ const HeaderRender = ({cart}) => {
 
     const [displayCart, setDisplayCart] = useState(false);
 
-    const renderCartContent = () => {
-        if(displayCart) {
-            return <Cart />
-        }
-        return ""
-    }
-
     const toggleCartContent = () => {
         setDisplayCart(!displayCart)
     }
@@ -41,12 +34,16 @@ const HeaderRender = ({cart}) => {
                     <ShoppingCart className="shopping-cart" onClick={() => toggleCartContent()} />
                 </div>
             </div>
-            {renderCartContent()}
+            {
+                displayCart ? (
+                    <Cart items={cart}/>
+                ) : ""
+            }
         </div>
 
     )
 };
 
-const Header = connect(mapStateToProps)(HeaderRender);
+const Header = connect(mapStateToProps, null)(HeaderRender);
 
 export default Header;
