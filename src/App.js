@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Header from "./components/Layout/Header";
 import Pizzas from "./components/Pizzas/Pizzas";
+import Checkout from "./components/Checkout/Checkout";
 import {
   BrowserRouter as Router,
   Switch,
@@ -16,6 +17,9 @@ function App() {
         <Switch>
           <Route path="/pizzas">
             <Pizzas/>
+          </Route>
+          <Route path="/checkout">
+            <Checkout/>
           </Route>
         </Switch>
       </Router>

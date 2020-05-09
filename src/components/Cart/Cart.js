@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import "./Cart.css"
 import { removeFromCart } from "../../js/actions";
 import { USD_TO_EUR } from "../../constants";
@@ -9,6 +10,7 @@ const mapDispatchToProps = {
 };
 
 const Cart = (props) => {
+    const history = useHistory();
 
     const removePizzaFromCart = (data) => {
         props.removeFromCart(data);
@@ -24,6 +26,10 @@ const Cart = (props) => {
 
         euros = dollars*USD_TO_EUR
         return `${dollars} $ / ${euros.toFixed(2)} €`;
+    }
+
+    const redirectToCheckout = () => {
+        history.push('/checkout')
     }
 
     return (
@@ -50,7 +56,7 @@ const Cart = (props) => {
                 {
                     props.items.length !== 0 ? (
                         <div className="cart-footer">
-                            <div className="proceed-button">
+                            <div className="proceed-button" onClick={redirectToCheckout}>
                                 Proceed
                             </div>
                             <div className="total-price">
