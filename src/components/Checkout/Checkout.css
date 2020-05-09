@@ -50,3 +50,26 @@
     margin: 20px 0;
     float: left;
 }
+
+.order-btn {
+    margin-top: 30px;
+    outline: none;
+    border: 1px solid #DC143C;
+    background: #DC143C;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.order-btn:hover {
+    color: #000000;
+}
+
+.checkout-input {
+    margin-left: 10px;
+    border-radius: 5px;
+    border: 1px solid #DC143C;
+    outline: none;
+    padding: 10px 5px;
+}

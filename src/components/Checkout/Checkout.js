@@ -95,7 +95,7 @@ const Checkout = ({cart}) => {
                         Address:
                         {
                             addressChange ? (
-                                <input type="text" value={address} onChange={handleAddressChange}/>
+                                <input type="text" className="checkout-input" value={address} onChange={handleAddressChange}/>
                             ) : (address)
                         }
                     </div>
@@ -103,7 +103,7 @@ const Checkout = ({cart}) => {
                         Information:
                         {
                             addressChange ? (
-                                <textarea onChange={handleInformation} defaultValue={information}>
+                                <textarea className="checkout-input" onChange={handleInformation} defaultValue={information}>
 
                                 </textarea>
                             ) : (information)
@@ -119,7 +119,7 @@ const Checkout = ({cart}) => {
                         Card number:
                         {
                             cardChange ? (
-                                <input type="text" value={cardNumber} onChange={handleCardNumber}/>
+                                <input type="text" className="checkout-input" value={cardNumber} onChange={handleCardNumber}/>
                             ) : (cardNumber)
                         }
                     </div>
@@ -169,7 +169,7 @@ const Checkout = ({cart}) => {
                         Security code:
                         {
                             cardChange ? (
-                                <input type="text" value={cardSecurityCode} onChange={handleCardSecurityCode}/>
+                                <input type="text" className="checkout-input" value={cardSecurityCode} onChange={handleCardSecurityCode}/>
                             ) : (cardSecurityCode)
                         }
                     </div>
@@ -186,6 +186,10 @@ const Checkout = ({cart}) => {
                         <b>Total</b>  {total} $ | {(total*USD_TO_EUR).toFixed(2)} €
                     </div>
                 </div>
+
+                <button className="order-btn">
+                    Place order & pay
+                </button>
             </div>
             <div className="cart">
                 Your cart
