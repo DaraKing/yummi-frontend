@@ -30,7 +30,14 @@ const Checkout = ({cart}) => {
         setSubTotal(sum.toFixed(2));
     }
 
+    const sumTotal = () => {
+        let sum = Number(subtotal) + DELIVERY_COST;
+
+        setTotal(sum.toFixed(2))
+    }
+
     useEffect(sumSubTotal, [cart])
+    useEffect(sumTotal, [subtotal])
 
     const returnTotalPrice = (item) => {
         let usd = item.quantity * item.price;
@@ -167,10 +174,13 @@ const Checkout = ({cart}) => {
                 <div className="total-section">
                     <h2>Summary</h2>
                     <div>
-                        <b>Subtotal before delivery</b> {subtotal}
+                        <b>Subtotal before delivery</b> {subtotal} $ | {(subtotal*USD_TO_EUR).toFixed(2)} €
                     </div>
                     <div>
-                        <b>Delivery charge</b> {DELIVERY_COST}
+                        <b>Delivery charge</b> {DELIVERY_COST} $ | {(DELIVERY_COST*USD_TO_EUR).toFixed(2)} €
+                    </div>
+                    <div>
+                        <b>Total</b>  {total} $ | {(total*USD_TO_EUR).toFixed(2)} €
                     </div>
                 </div>
             </div>
