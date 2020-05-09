@@ -29,3 +29,28 @@
 .remove:hover {
     color: #000000;
 }
+
+.cart-footer {
+    color: white;
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    left: 0;
+    right: 0;
+    padding: 0 10px;
+}
+
+.proceed-button {
+    padding: 10px 20px;
+    border: 1px solid #ffffff;
+    background: #ffffff;
+    color: #DC143C;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.proceed-button:hover {
+    color: #000000;
+}
