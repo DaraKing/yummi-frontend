@@ -16,7 +16,7 @@ const Checkout = ({cart}) => {
     const [cardNumber, setCardNumber] = useState("");
     const [cardMonth, setCardMonth] = useState(null);
     const [cardAge, setCardAge] = useState(null);
-    const [cardSecurityCode, setCardSecurityCode] = useState(null);
+    const [cardSecurityCode, setCardSecurityCode] = useState("");
     const [subtotal, setSubTotal] = useState(0);
     const [total, setTotal] = useState(0)
 
@@ -103,8 +103,8 @@ const Checkout = ({cart}) => {
                         Information:
                         {
                             addressChange ? (
-                                <textarea onChange={handleInformation}>
-                                    {information}
+                                <textarea onChange={handleInformation} defaultValue={information}>
+
                                 </textarea>
                             ) : (information)
                         }
@@ -159,7 +159,10 @@ const Checkout = ({cart}) => {
                                     </select>
                                 </div>
 
-                            ) : (cardMonth + "/"+ cardAge)
+                            ) : (
+                                cardMonth && cardAge ?
+                                cardMonth + "/"+ cardAge : ""
+                            )
                         }
                     </div>
                     <div className="delivery-content">
