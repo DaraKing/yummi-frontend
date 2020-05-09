@@ -1,0 +1,52 @@
+.checkout {
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+}
+
+.order-options {
+    padding: 50px;
+    flex: 2;
+}
+
+.cart {
+    background: #D3D3D3;
+    padding: 30px 10px;
+    flex: 1;
+}
+
+.item-image {
+    height: 150px;
+    width: 150px;
+}
+
+.item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.section-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: #D3D3D3;
+    padding: 0 10px;
+}
+
+.change-btn {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.change-btn:hover {
+    color: white;
+}
+
+.delivery-content {
+    width: 100%;
+    margin: 20px 0;
+    float: left;
+}

@@ -25,7 +25,7 @@ const Cart = (props) => {
         })
 
         euros = dollars*USD_TO_EUR
-        return `${dollars} $ / ${euros.toFixed(2)} €`;
+        return `${dollars.toFixed(2)} $ / ${euros.toFixed(2)} €`;
     }
 
     const redirectToCheckout = () => {
@@ -42,7 +42,7 @@ const Cart = (props) => {
                                 {item.name}
                             </div>
                             <div className="item">
-                                {item.price}
+                                {item.price}$
                             </div>
                             <div className="item">
                                 {item.quantity}
