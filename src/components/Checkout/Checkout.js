@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { connect } from 'react-redux';
 import "./Checkout.css";
-import { USD_TO_EUR, DELIVERY_COST } from "../../constants";
+import { USD_TO_EUR, DELIVERY_COST, API_URL } from "../../constants";
 
 const mapStateToProps = state => {
     return { cart: state.cart }
@@ -18,7 +18,9 @@ const Checkout = ({cart}) => {
     const [cardAge, setCardAge] = useState(null);
     const [cardSecurityCode, setCardSecurityCode] = useState("");
     const [subtotal, setSubTotal] = useState(0);
-    const [total, setTotal] = useState(0)
+    const [total, setTotal] = useState(0);
+    const [errors, setErrors] = useState("");
+    const [success, setSuccess] = useState("");
 
     const sumSubTotal = () => {
         let sum = 0;
@@ -49,6 +51,35 @@ const Checkout = ({cart}) => {
                 <div>${eur.toFixed(2)}€</div>
             </div>
         )
+    }
+
+    const sendOrder = () => {
+        if (!(address && information && cardNumber && cardAge && cardMonth && cardSecurityCode)) {
+            setErrors("Some fields are empty!")
+            return
+        }
+
+        let body = {
+            address,
+            information,
+            pizzas: cart
+        }
+
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body)
+        };
+
+        fetch(`${API_URL}/checkout`, requestOptions)
+            .then(response => {
+                if(response.status === 200) {
+                    setSuccess("You order has been successfully finished.")
+                }
+            })
+            .catch(() => {
+                setErrors("Something went wrong!");
+            })
     }
 
     const handleAddressChange = (event) => {
@@ -187,15 +218,22 @@ const Checkout = ({cart}) => {
                     </div>
                 </div>
 
-                <button className="order-btn">
+                <button className="order-btn" onClick={sendOrder}>
                     Place order & pay
                 </button>
+
+                <div className="errors-area">
+                    {errors}
+                </div>
+                <div className="success-area">
+                    {success}
+                </div>
             </div>
             <div className="cart">
                 Your cart
                 {
                     cart.map((item) =>
-                        <div className="item" key={item}>
+                        <div className="item" key={item.pizza_id}>
                             <div>
                                 <img className="item-image" src={item.image} alt="Pizza" />
                             </div>

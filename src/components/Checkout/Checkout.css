@@ -73,3 +73,15 @@
     outline: none;
     padding: 10px 5px;
 }
+
+.errors-area {
+    font-weight: bold;
+    font-size: 18px;
+    color: #DC143C;
+}
+
+.success-area {
+    font-weight: bold;
+    font-size: 18px;
+    color: #00FF00;
+}
